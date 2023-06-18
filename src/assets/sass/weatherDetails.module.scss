@@ -1,0 +1,61 @@
+@import "./variables.scss";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  margin: 20px 0;
+  
+  h2 {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 20px;
+
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+
+  p {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  
+  .tempAndIcon {
+    display: flex;
+    align-items: center;
+
+    span {
+      font-size: 55px;
+    }
+  }
+
+  .sunAndTempDetails {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 15px;
+
+    .detailsItem {
+      display: flex;
+      align-items: center;
+      font-size: 15px;
+
+      .title {
+        color: $colorSilver;
+      }
+
+      .wall {
+        margin: 0 10px;
+      }
+
+      svg {
+        margin-right: 5px;
+      }
+    }
+  }
+}

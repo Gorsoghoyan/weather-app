@@ -1,0 +1,12 @@
+
+.searchCity {
+  border: none;
+  outline: none;
+  padding: 10px;
+  color: rgb(69, 69, 69);
+  background: transparent;
+
+  &::placeholder {
+    color: rgb(69, 69, 69);
+  }
+}

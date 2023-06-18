@@ -1,0 +1,9 @@
+$colorSilver: rgb(245, 245, 245);
+
+$warmWeatherBg: radial-gradient(circle, 	#edb200 0%, 	#FF900D 100%);
+$coldWeatherBg: linear-gradient(to bottom, 	#1d65f0 0%, 	#1ad3fd 100%); 
+
+:export {
+  warmWeatherBg: $warmWeatherBg;
+  coldWeatherBg: $coldWeatherBg;
+}

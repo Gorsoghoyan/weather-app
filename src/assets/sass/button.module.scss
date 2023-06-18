@@ -1,0 +1,25 @@
+@import "./variables.scss";
+
+.units {
+  font-size: 20px;
+  border: none;
+  outline: none;
+  color: white;
+  background: transparent;
+  cursor: pointer;
+
+  &:disabled {
+    font-size: 17px;
+    color: $colorSilver;
+    cursor: auto;
+  }
+}
+
+.searchIcon {
+  width: 35px;
+  height: 35px;
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+}
