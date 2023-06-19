@@ -7,6 +7,7 @@ const SearchAndUnits = lazy(() => import("./components/SearchAndUnits"));
 const WeatherDetails = lazy(() => import("./components/WeatherDetails"));
 const WeatherForecast = lazy(() => import("./components/WeatherForecast"));
 const PageLoading = lazy(() => import("./components/PageLoading"));
+const PageError = lazy(() => import("./components/PageError"));
 
 export default function App() {
   const {
@@ -27,7 +28,7 @@ export default function App() {
       {loading ? (
         <PageLoading />
       ) : error ? (
-        <div>Error</div>
+        <PageError />
       ) : weather ? (
         <>
           <SearchAndUnits
@@ -37,25 +38,12 @@ export default function App() {
           />
           <WeatherDetails weather={weather} />
           <Routes>
-            <Route 
-              index 
-              path="/" 
-              element={
-                <WeatherForecast 
-                  list={weather.daily} 
-                  tz={weather.timezone} 
-                />
-              } 
-            />
-            <Route 
-              path="/:day" 
-              element={
-                <WeatherForecast 
-                  list={weather.daily[0].hourly} 
-                  tz={weather.timezone} 
-                />
-              } 
-            />
+            <Route index path="/" element={
+              <WeatherForecast weather={weather} />
+            } />
+            <Route path="/:dayName" element={
+              <WeatherForecast weather={weather} />
+            } />
           </Routes>
         </>
       ) : null}

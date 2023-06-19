@@ -1,4 +1,5 @@
 import s from "../../assets/sass/button.module.scss";
+import c from "classnames";
 
 export default function Button({
   variant,
@@ -10,7 +11,7 @@ export default function Button({
 }) {
   return (
     <button 
-      className={s[variant]}
+      className={c(s.button, s[variant])}
       type={type}
       name={name}
       disabled={disabled}

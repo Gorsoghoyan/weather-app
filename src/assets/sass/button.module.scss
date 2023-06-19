@@ -1,12 +1,15 @@
 @import "./variables.scss";
 
-.units {
-  font-size: 20px;
+.button {
   border: none;
   outline: none;
-  color: white;
   background: transparent;
   cursor: pointer;
+}
+
+.units {
+  font-size: 20px;
+  color: white;
 
   &:disabled {
     font-size: 17px;
@@ -18,8 +21,4 @@
 .searchIcon {
   width: 35px;
   height: 35px;
-  border: none;
-  outline: none;
-  background: transparent;
-  cursor: pointer;
 }

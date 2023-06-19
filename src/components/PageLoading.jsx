@@ -44,5 +44,5 @@ export default function PageLoading() {
         LOOKING OUTSIDE FOR YOU... ONE SEC
       </div>
     </div>
-  )
+  );
 }

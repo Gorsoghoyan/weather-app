@@ -1,14 +1,14 @@
+@use "../sass/mixins.scss";
+
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include mixins.flex-center;
   gap: 40px;
 
   form {
     display: flex;
     align-items: center;
-    border-radius: 4px;
     overflow: hidden;
+    border-radius: 4px;
     box-shadow: 5px 5px 20px rgba(172, 172, 172, 0.541);
     background: rgba(255, 255, 255, 0.91);
 
@@ -20,9 +20,7 @@
   }
 
   .units {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include mixins.flex-center;
     color: white;
 
     span {

@@ -1,10 +1,9 @@
+@use "./mixins.scss";
 @import "./variables.scss";
 
 .container {
-  display: flex;
+  @include mixins.flex-center;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   color: white;
   margin: 20px 0;
   
@@ -14,10 +13,7 @@
 
   h3 {
     font-size: 20px;
-
-    &::first-letter {
-      text-transform: uppercase;
-    }
+    @include mixins.first-letter-uppercase;
   }
 
   p {
@@ -35,9 +31,7 @@
   }
 
   .sunAndTempDetails {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    @include mixins.flex-responsive;
     margin-top: 15px;
 
     .detailsItem {

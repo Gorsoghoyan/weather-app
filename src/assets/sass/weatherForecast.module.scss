@@ -1,3 +1,4 @@
+@use "./mixins.scss";
 @import "./variables.scss";
 
 .container {
@@ -5,10 +6,16 @@
   justify-content: center;
   color: white;
 
+  .goBack {
+    position: absolute;
+    top: 32px;
+    left: 10px;
+    font-size: 30px;
+    cursor: pointer;
+  }
+
   .listContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    @include mixins.flex-responsive;
     margin: 10px 0;
     gap: 12px;
 
@@ -21,11 +28,21 @@
       text-decoration: none;
       border: 1px solid white;
       color: white;
-      box-shadow: inset 0 0 40px rgba(255, 255, 255, 0.307);
-      transition: transform .2s linear, box-shadow .1s ease;
+      box-shadow: inset 0 0 40px rgba(255, 255, 255, 0.262);
+      transition: transform .1s linear, box-shadow .1s ease;
+
+      &.active {
+        cursor: auto;
+
+        &:hover {
+          transform: none;
+        }
+      }
 
       &:hover {
-        box-shadow: inset 0 0 10px white; 
+        box-shadow: 
+          inset 0 0 40px rgba(255, 255, 255, 0.377),  
+          5px 5px 20px rgba(255, 255, 255, 0.284); 
         transform: scale(1.03);
       }
 
@@ -35,13 +52,8 @@
       }
 
       & > span:last-child {
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        
-        &::first-letter {
-          text-transform: uppercase;
-        }
+        @include mixins.text-ellipsis;
+        @include mixins.first-letter-uppercase;
       }
 
       .temps {

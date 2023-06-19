@@ -58,7 +58,7 @@ const findMinOrMaxTemp = (
 };
 
 const formatForecastWeather = (data) => {
-  const { list } = data;
+  const { list, timezone } = data;
 
   const dailyData = [];
 
@@ -67,10 +67,11 @@ const formatForecastWeather = (data) => {
       dt: list[i].dt,
       dt_txt: list[i].dt_txt,
       main: list[i].weather[0].main,
-      description: list[i].weather[0].description,
       icon: list[i].weather[0].icon,
+      description: list[i].weather[0].description,
       temp_max: findMinOrMaxTemp(list, i, "max"),
       temp_min: findMinOrMaxTemp(list, i, "min", list[i].main.temp_min),
+      dayName: formatToLocalTime(list[i + 3].dt, timezone, "dddd"),
       hourly: list.slice(i, i + 8)
     });
   }

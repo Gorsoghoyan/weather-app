@@ -20,7 +20,7 @@ export default function SearchAndUnits({
   );
 
   return (
-    <div className={s.container}>
+    <section className={s.container}>
       <form onSubmit={handleCityChange}>
         <Input
           ref={inputRef}
@@ -46,6 +46,6 @@ export default function SearchAndUnits({
           onClick={handleUnitsChange}
         >°F</Button>
       </div>
-    </div>
+    </section>
   );
 }
