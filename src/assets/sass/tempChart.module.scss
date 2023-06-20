@@ -1,0 +1,29 @@
+.container {
+  width: 700px;
+  margin: 20px auto;
+  border-radius: 10px;
+  background: rgb(255 255 255 / 21%);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.221);
+
+  .tooltip {
+    padding: 10px 13px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.889);
+
+    h4 {
+      margin-bottom: 5px;
+      color: rgb(31, 31, 31);
+    }
+
+    p span {
+      margin-right: 5px;
+    }
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .container {
+    width: 100%;
+  }   
+}
+

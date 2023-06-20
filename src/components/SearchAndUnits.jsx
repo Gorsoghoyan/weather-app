@@ -38,7 +38,7 @@ export default function SearchAndUnits({
           disabled={units === "metric"}
           onClick={handleUnitsChange}
         >°C</Button>
-        <span>|</span>
+        <span>/</span>
         <Button 
           variant={"units"} 
           name={"imperial"}

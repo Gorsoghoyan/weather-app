@@ -64,8 +64,7 @@ const formatForecastWeather = (data) => {
 
   for (let i = 0; i < list.length; i += 8) {
     dailyData.push({
-      dt: list[i].dt,
-      dt_txt: list[i].dt_txt,
+      dt: list[i + 3].dt,
       main: list[i].weather[0].main,
       icon: list[i].weather[0].icon,
       description: list[i].weather[0].description,
