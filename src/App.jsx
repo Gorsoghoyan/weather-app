@@ -1,15 +1,10 @@
-import { lazy } from "react";
-import { useApp } from "./hooks/useApp";
-import { Route, Routes } from "react-router-dom";
-import s from "./assets/sass/app.module.scss";
+import { lazyLoad } from "./core";
+import { useApp } from "./hooks";
+import styles from "./assets/sass/app.module.scss";
 
-const PageLoading = lazy(() => import("./components/PageLoading"));
-const PageError = lazy(() => import("./components/PageError"));
-
-const SearchAndUnits = lazy(() => import("./components/SearchAndUnits"));
-const WeatherDetails = lazy(() => import("./components/WeatherDetails"));
-const WeatherForecast = lazy(() => import("./components/WeatherForecast"));
-const TempChart = lazy(() => import("./components/TempChart"));
+const PageHome = lazyLoad("PageHome");
+const PageError = lazyLoad("PageError");
+const PageLoading = lazyLoad("PageLoading");
 
 export default function App() {
   const {
@@ -24,7 +19,7 @@ export default function App() {
 
   return (
     <div
-      className={s.mainContainer}
+      className={styles.mainContainer}
       style={{ background: formatBackground() }}
     >
       {loading ? (
@@ -32,30 +27,12 @@ export default function App() {
       ) : error ? (
         <PageError />
       ) : weather ? (
-        <>
-          <SearchAndUnits
-            units={units}
-            setUnits={setUnits}
-            setQuery={setQuery}
-          />
-          <WeatherDetails weather={weather} />
-          <Routes>
-            <Route
-              index
-              path="/"
-              element={
-                <WeatherForecast weather={weather} />
-              }
-            />
-            <Route
-              path="/:dayName"
-              element={
-                <WeatherForecast weather={weather} />
-              }
-            />
-          </Routes>
-          <TempChart weather={weather} />
-        </>
+        <PageHome 
+          weather={weather} 
+          units={units} 
+          setUnits={setUnits} 
+          setQuery={setQuery} 
+        />
       ) : null}
     </div>
   );

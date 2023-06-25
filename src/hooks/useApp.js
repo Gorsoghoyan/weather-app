@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getFormattedWeatherData } from "../services/weatherService";
+import { getFormattedWeatherData } from "../services";
 import variables from "../assets/sass/variables.scss";
 
 export const useApp = () => {
@@ -14,13 +14,12 @@ export const useApp = () => {
       setLoading(true);
       try {
         const data = await getFormattedWeatherData({ ...query, units });
-        console.log(data)
         setError(false);
-        setLoading(false);
         setWeather(data);
       } catch (error) {
-        setLoading(false);
         setError(true);
+      } finally {
+        setLoading(false);
       }
     };
 

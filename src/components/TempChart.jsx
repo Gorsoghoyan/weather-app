@@ -1,5 +1,5 @@
-import { formatTemp } from "../services/weatherService";
-import s from "../assets/sass/tempChart.module.scss";
+import { CustomTooltip } from ".";
+import styles from "../assets/sass/tempChart.module.scss";
 
 import {
   CartesianGrid,
@@ -11,23 +11,9 @@ import {
   YAxis
 } from "recharts";
 
-const CustomTooltip = ({ active, payload, label }) => {
-  return active && (
-    <div className={s.tooltip}>
-      <h4>{label}</h4>
-      <p style={{ color: payload[0].stroke}}>
-        <span>Temperature:</span>{formatTemp(payload[0].payload.temp_max)}
-      </p>
-      <p style={{ color: payload[1].stroke}}>
-        <span>Temperature:</span>{formatTemp(payload[0].payload.temp_min)}
-      </p>
-    </div>
-  );
-};
-
 export default function TempChart({ weather }) {
   return (
-    <section className={s.container}>
+    <section className={styles.container}>
       <ResponsiveContainer width={"100%"} height={320}>
         <LineChart
           data={weather.daily}

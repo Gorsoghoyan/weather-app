@@ -1,13 +1,13 @@
 import { forwardRef } from "react";
-import s from "../../assets/sass/input.module.scss";
+import styles from "../../assets/sass/input.module.scss";
 
 const Input = forwardRef((
   { variant, type, name, placeholder }, ref
 ) => {
   return (
     <input 
+      className={styles[variant]}
       ref={ref}
-      className={s[variant]}
       type={type}
       name={name}
       placeholder={placeholder}

@@ -1,5 +1,5 @@
-import s from "../../assets/sass/button.module.scss";
-import c from "classnames";
+import styles from "../../assets/sass/button.module.scss";
+import classnames from "classnames";
 
 export default function Button({
   variant,
@@ -11,7 +11,10 @@ export default function Button({
 }) {
   return (
     <button 
-      className={c(s.button, s[variant])}
+      className={classnames(
+        styles.button, 
+        styles[variant]
+      )}
       type={type}
       name={name}
       disabled={disabled}

@@ -1,6 +1,6 @@
 import { BsSunriseFill, BsSunsetFill } from "react-icons/bs";
 import { FaTemperatureHigh, FaTemperatureLow } from "react-icons/fa";
-import { formatTemp, formatToLocalTime } from "../services/weatherService";
+import { formatTemp, formatToLocalTime } from "../core";
 
 export const useWeatherDetails = (weather) => {
 

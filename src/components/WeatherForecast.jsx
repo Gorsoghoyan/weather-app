@@ -1,41 +1,7 @@
-import WeatherIcon from "./ui/WeatherIcon";
-import { Link } from "react-router-dom";
+import { ForecastListItem } from ".";
+import { useWeatherForecast } from "../hooks";
 import { IoIosArrowBack } from "react-icons/io";
-import { useWeatherForecast } from "../hooks/useWeatherForecast";
-import { formatTemp, formatToLocalTime } from "../services/weatherService";
-import s from "../assets/sass/weatherForecast.module.scss";
-import c from "classnames";
-
-const ListItem = ({
-  dt,
-  icon,
-  dayName,
-  timezone,
-  tempMin,
-  tempMax,
-  description 
-}) => {
-  return (
-    <Link
-      className={c(s.listItem, { [s.active]: !dayName })}
-      to={dayName ? dayName : null}
-    >
-      <span>
-        {formatToLocalTime(
-          dt,
-          timezone,
-          dayName ? "ddd D" : "H:mm"
-        )}
-      </span>
-      <WeatherIcon icon={icon} size={45} />
-      <div className={s.temps}>
-        <span>{formatTemp(tempMax)}</span>
-        <span>{formatTemp(tempMin)}</span>
-      </div>
-      <span>{description}</span>
-    </Link>
-  );
-};
+import styles from "../assets/sass/weatherForecast.module.scss";
 
 export default function WeatherForecast({ weather }) {
   const { 
@@ -45,10 +11,10 @@ export default function WeatherForecast({ weather }) {
   } = useWeatherForecast(weather);
 
   return (
-    <section className={s.container}>
-      <div className={s.listContainer}>
+    <section className={styles.container}>
+      <div className={styles.listContainer}>
         {forecastList?.map(item => (
-          <ListItem
+          <ForecastListItem
             key={item.dt}
             dt={item.dt}
             icon={item.icon}
@@ -62,7 +28,7 @@ export default function WeatherForecast({ weather }) {
       </div>
       {goBack && (
         <IoIosArrowBack 
-          className={s.goBack}
+          className={styles.goBack}
           onClick={handleGoBack}
         />
       )}

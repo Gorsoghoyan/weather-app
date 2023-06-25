@@ -1,8 +1,7 @@
-import Input from "./ui/Input";
-import Button from "./ui/Button";
+import { Button, Input } from ".";
+import { useSearchAndUnits } from "../hooks";
 import { AiOutlineSearch } from "react-icons/ai";
-import { useSearchAndUnits } from "../hooks/useSearchAndUnits";
-import s from "../assets/sass/searchAndUnits.module.scss";
+import styles from "../assets/sass/searchAndUnits.module.scss";
 
 export default function SearchAndUnits({
   units,
@@ -20,7 +19,7 @@ export default function SearchAndUnits({
   );
 
   return (
-    <section className={s.container}>
+    <section className={styles.container}>
       <form onSubmit={handleCityChange}>
         <Input
           ref={inputRef}
@@ -31,7 +30,7 @@ export default function SearchAndUnits({
           <AiOutlineSearch />
         </Button>
       </form>
-      <div className={s.units}>
+      <div className={styles.units}>
         <Button 
           variant={"units"} 
           name={"metric"}
